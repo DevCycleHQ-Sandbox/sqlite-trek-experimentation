@@ -30,12 +30,8 @@
       </div>
       <div class="content text-center flex space-x-10">
         <div class="flex flex-col justify-center items-center">
-          <image
-            src="https://lh5.googleusercontent.com/proxy/KTMTgxEwIkK5PtvXhl3qRBO_BB797q_ixPFFLP4lLCImNbufF5V6bRvVbBMHSuQ8rF4IiMBjIOW539IuELV-Ir5X7ppI40BUOkd4ytO87v9gDRIgWsm_UXt84aMVd_6v8_pPt_ZACSm-km9RlQ"
-            alt="Star Trek"
-            class="w-40 my-4"
-          />
-          <image src="/sqlite-trek.png" alt="Star Trek" class="w-96" />
+          <image src="/express.png" alt="express" class="w-40 my-4" />
+          <image src="/sqlite-trek.png" alt="SQLite Trek" class="w-96" />
           <h1 class="text-4xl font-bold mb-8 text-yellow-400">
             Series Searcher
           </h1>
@@ -66,6 +62,9 @@
               Engage Search
             </button>
           </form>
+          <a href="<%= host %>" class="p-4 text-white">
+            Try the tinyhttp version
+          </a>
         </div>
         <% if (data) { %>
         <div class="my-8 flex flex-col justify-center items-center">

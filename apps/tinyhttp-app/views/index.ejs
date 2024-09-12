@@ -30,12 +30,8 @@
       </div>
       <div class="content text-center flex space-x-10">
         <div class="flex flex-col justify-center items-center">
-          <image
-            src="https://camo.githubusercontent.com/9f8e038a6ce2cfe00dda33e615a0edf6b254d8913f5941d37a29dabe05ca47e4/68747470733a2f2f74696e79687474702e763172746c2e736974652f6c6f676f2e737667"
-            alt="Star Trek"
-            class="w-40 my-4"
-          />
-          <image src="/sqlite-trek.png" alt="Star Trek" class="w-96" />
+          <image src="/tinyhttp.svg" alt="tinyhttp" class="w-40 my-4" />
+          <image src="/sqlite-trek.png" alt="SQLite Trek" class="w-96" />
           <h1 class="text-4xl font-bold mb-8 text-yellow-400">
             Series Searcher
           </h1>
@@ -66,6 +62,9 @@
               Engage Search
             </button>
           </form>
+          <a href="<%= host %>" class="p-4 text-white">
+            Try the Express version
+          </a>
         </div>
         <% if (data) { %>
         <div class="my-8 flex flex-col justify-center items-center">

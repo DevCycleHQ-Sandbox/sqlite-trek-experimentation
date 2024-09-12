@@ -75,22 +75,25 @@ async function run() {
   app.use(urlencoded());
   app.use(sirv("public")).listen(3000);
 
+  let fullHost, hostname;
+
   app.use((req, res, next) => {
     req.user = {
       user_id: generateUserId(),
     };
+    fullHost = req.headers.host;
+    hostname = fullHost.split(":")[0];
     next();
   });
 
-  app.get(
-    "/",
-    (_, res) =>
-      void res.render("index.ejs", {
-        query_time: null,
-        db_type: null,
-        data: null,
-      })
-  );
+  app.get("/", (req, res) => {
+    res.render("index.ejs", {
+      query_time: null,
+      db_type: null,
+      data: null,
+      host: `http://${hostname}:5000`,
+    });
+  });
 
   app.post("/search", async (req, res) => {
     const { user } = req;
@@ -102,6 +105,7 @@ async function run() {
         query_time: null,
         db_type: null,
         data: "Please provide a search term",
+        host: `http://${hostname}:5000`,
       });
     }
 
@@ -127,6 +131,7 @@ async function run() {
         data: result?.series_name
           ? result
           : `No results found for '${searchTerm}'`,
+        host: `http://${hostname}:5000`,
       });
 
       // Track response time
@@ -141,6 +146,7 @@ async function run() {
         query_time: null,
         db_type: null,
         data: "Internal Server Error",
+        host: `http://${hostname}:5000`,
       });
     }
   });

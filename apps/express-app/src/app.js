@@ -75,16 +75,27 @@ const run = async () => {
   app.use(express.static("public"));
   app.set("view engine", "ejs");
 
+  let fullHost, hostname;
+
   app.use((req, res, next) => {
     req.user = {
       user_id: generateUserId(),
     };
+    fullHost = req.headers.host;
+    hostname = fullHost.split(":")[0];
     next();
   });
 
   // Routes
   app.get("/", (req, res) => {
-    res.render("index", { query_time: null, db_type: null, data: null });
+    const fullHost = req.headers.host;
+    const hostname = fullHost.split(":")[0];
+    res.render("index", {
+      query_time: null,
+      db_type: null,
+      data: null,
+      host: `http://${hostname}:3000`,
+    });
   });
 
   app.post("/search", async (req, res) => {
@@ -97,6 +108,7 @@ const run = async () => {
         query_time: null,
         db_type: null,
         data: "Please provide a search term",
+        host: `http://${hostname}:3000`,
       });
     }
 
@@ -122,6 +134,7 @@ const run = async () => {
         data: result?.series_name
           ? result
           : `No results found for '${searchTerm}'`,
+        host: `http://${hostname}:3000`,
       });
 
       // Track response time
@@ -136,6 +149,7 @@ const run = async () => {
         query_time: null,
         db_type: null,
         data: "Internal Server Error",
+        host: `http://${hostname}:3000`,
       });
     }
   });
