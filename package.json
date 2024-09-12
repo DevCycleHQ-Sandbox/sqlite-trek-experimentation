@@ -1,0 +1,18 @@
+{
+  "name": "sqlite-trek-experimentation-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/express-app",
+    "apps/tinyhttp-app"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm start --workspace=express-app\" \"npm start --workspace=tinyhttp-app\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

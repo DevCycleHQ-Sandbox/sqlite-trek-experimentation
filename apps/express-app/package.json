@@ -1,0 +1,18 @@
+{
+  "name": "express-app",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "open http://localhost:5000 && nodemon src/server.js"
+  },
+  "dependencies": {
+    "@devcycle/nodejs-server-sdk": "^1.35.1",
+    "@libsql/client": "^0.10.0",
+    "@sqlitecloud/drivers": "^1.0.245",
+    "ejs": "^3.1.10",
+    "express": "~4.16.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
