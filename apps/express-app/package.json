@@ -9,7 +9,7 @@
     "@libsql/client": "^0.10.0",
     "@sqlitecloud/drivers": "^1.0.245",
     "ejs": "^3.1.10",
-    "express": "~4.16.1",
+    "express": "~4.20.0",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
